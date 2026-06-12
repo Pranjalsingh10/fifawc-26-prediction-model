@@ -1,43 +1,46 @@
-import pandas as pd
+import pickle
 import numpy as np
+import pandas as pd
 
-elo = pd.read_csv(
-    "data/processed/elo_ratings.csv"
-)
+def get_user_input_and_predict():
+    # 1. Load the serialized model
+    try:
+        with open("models/match_predictor.pkl", "rb") as f:
+            model = pickle.load(f)
+    except FileNotFoundError:
+        print("❌ Error: models/match_predictor.pkl not found. Please run train_match_predictor.py first.")
+        return
 
-ratings = dict(
-    zip(
-        elo["Team"],
-        elo["ELO"]
-    )
-)
+    print("=== ⚽ FIFA World Cup 2026 Match Simulator ===")
+    
+    # 2. Get dynamic inputs from the terminal window
+    home_team = input("Enter Home Team Name (e.g., Argentina): ").strip()
+    away_team = input("Enter Away Team Name (e.g., France): ").strip()
+    
+    try:
+        home_elo = float(input(f"Enter {home_team} Elo Rating (e.g., 1950): "))
+        away_elo = float(input(f"Enter {away_team} Elo Rating (e.g., 1920): "))
+    except ValueError:
+        print("❌ Error: Elo ratings must be numbers.")
+        return
+        
+    # 3. Format features matching the model training structure
+    elo_diff = home_elo - away_elo
+    input_data = pd.DataFrame([{
+        "Home_Elo_Before": home_elo,
+        "Away_Elo_Before": away_elo,
+        "Elo_Difference": elo_diff
+    }])
+    
+    # 4. Predict probabilities (Classes: [0: Home Win, 1: Away Win, 2: Draw])
+    probabilities = model.predict_proba(input_data)[0]
+    
+    print(f"\n🔮 --- 2026 World Cup Simulation: {home_team} vs {away_team} ---")
+    print(f"📊 {home_team} Elo: {home_elo} | {away_team} Elo: {away_elo} (Diff: {elo_diff:+})")
+    print("-" * 55)
+    print(f"🏠 {home_team} Win Probability: {probabilities[0]:.2%}")
+    print(f"🤝 Draw Probability:     {probabilities[2]:.2%}")
+    print(f"🚀 {away_team} Win Probability: {probabilities[1]:.2%}")
 
-team1 = input("Team 1: ")
-team2 = input("Team 2: ")
-
-r1 = ratings.get(team1, 1500)
-r2 = ratings.get(team2, 1500)
-
-home = 0
-away = 0
-draw = 0
-
-for _ in range(10000):
-
-    p1 = 1 / (1 + 10 ** ((r2-r1)/400))
-
-    rnd = np.random.random()
-
-    if rnd < p1 - 0.15:
-        home += 1
-
-    elif rnd > p1 + 0.15:
-        away += 1
-
-    else:
-        draw += 1
-
-print()
-print(team1, "Win:", round(home/100,2), "%")
-print("Draw:", round(draw/100,2), "%")
-print(team2, "Win:", round(away/100,2), "%")
+if __name__ == "__main__":
+    get_user_input_and_predict()
