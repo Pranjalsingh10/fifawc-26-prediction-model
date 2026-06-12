@@ -1,49 +1,49 @@
-National_Team,Latest_Elo_Rating,Matches_Played_Post_2022,Win_Rate_Post_2022,World_Cup_Titles,World_Cup_Runners_Up
-Algeria,1837.02,52,0.6538,0,0
-Argentina,2025.71,42,0.7619,3,3
-Australia,1805.86,41,0.5366,0,0
-Austria,1848.32,40,0.6,0,0
-Belgium,1869.81,41,0.5122,0,0
-Brazil,1931.45,40,0.425,5,2
-Cabo Verde,1500.0,0,0.0,0,0
-Canada,1806.3,46,0.413,0,0
-Chile,1747.5,36,0.3611,0,0
-Colombia,1920.58,45,0.5333,0,0
-Costa Rica,1661.0,47,0.3617,0,0
-Croatia,1877.49,40,0.525,0,1
-Denmark,1860.75,38,0.5263,0,0
-Ecuador,1884.73,42,0.4286,0,0
-Egypt,1759.69,50,0.52,0,0
-England,1927.17,44,0.6364,1,0
-France,1971.42,43,0.6047,2,2
-Germany,1930.05,43,0.5349,4,4
-Ghana,1599.2,39,0.3077,0,0
-Honduras,1621.68,43,0.4186,0,0
-Iran,1819.43,42,0.6429,0,0
-Iraq,1724.71,52,0.5192,0,0
-Jamaica,1609.73,55,0.4545,0,0
-Japan,1903.79,41,0.6829,0,0
-Mali,1648.01,38,0.5,0,0
-Mexico,1867.56,60,0.5,0,0
-Morocco,1898.66,54,0.7222,0,0
-Netherlands,1907.72,43,0.5116,0,3
-New Zealand,1649.93,36,0.3611,0,0
-Nigeria,1761.68,48,0.5208,0,0
-Panama,1737.54,58,0.4828,0,0
-Paraguay,1805.34,36,0.3333,0,0
-Peru,1694.9,36,0.1944,0,0
-Poland,1760.26,37,0.4595,0,0
-Portugal,1942.73,43,0.6512,0,0
-Qatar,1599.05,53,0.3585,0,0
-Saudi Arabia,1682.85,60,0.3833,0,0
-Senegal,1823.4,48,0.6458,0,0
-South Africa,1662.84,52,0.4038,0,0
-South Korea,1818.72,44,0.5227,0,0
-Spain,2021.57,44,0.6818,1,0
-Switzerland,1836.18,42,0.381,0,0
-Tunisia,1705.06,49,0.449,0,0
-USA,1500.0,0,0.0,0,0
-Ukraine,1777.91,37,0.4595,0,0
-Uruguay,1848.4,42,0.381,2,0
-Uzbekistan,1764.9,45,0.4889,0,0
-Venezuela,1746.74,36,0.3611,0,0
+National_Team,Latest_Elo_Rating,Win_Rate_Post_2022,World_Cup_Titles
+Algeria,1750,0.5,0
+Argentina,2150,0.78,3
+Australia,1750,0.5,0
+Austria,1860,0.57,0
+Belgium,1960,0.64,0
+Bosnia and Herzegovina,1750,0.5,0
+Brazil,2130,0.77,5
+Cabo Verde,1750,0.5,0
+Canada,1750,0.5,0
+Colombia,1910,0.6,0
+Congo DR,1750,0.5,0
+Croatia,1950,0.63,0
+Curacao,1750,0.5,0
+Czech Republic,1820,0.53,0
+Cote d'Ivoire,1750,0.5,0
+Ecuador,1825,0.54,0
+Egypt,1750,0.5,0
+England,2040,0.69,1
+France,2120,0.76,2
+Germany,2020,0.68,4
+Ghana,1750,0.5,0
+Haiti,1750,0.5,0
+Iraq,1750,0.5,0
+IR Iran,1835,0.54,0
+Japan,1900,0.6,0
+Jordan,1750,0.5,0
+South Korea,1845,0.55,0
+Mexico,1880,0.58,0
+Morocco,1920,0.61,0
+Netherlands,1975,0.65,0
+New Zealand,1750,0.5,0
+Norway,1850,0.56,0
+Panama,1750,0.5,0
+Paraguay,1830,0.54,0
+Portugal,2020,0.68,0
+Qatar,1750,0.5,0
+Saudi Arabia,1750,0.5,0
+Scotland,1815,0.53,0
+Senegal,1840,0.55,0
+South Africa,1750,0.5,0
+Spain,2050,0.7,1
+Sweden,1855,0.56,0
+Switzerland,1890,0.59,0
+Tunisia,1750,0.5,0
+Turkey,1750,0.5,0
+Uruguay,1940,0.62,2
+USA,1750,0.5,0
+Uzbekistan,1750,0.5,0
