@@ -18,8 +18,7 @@ FEATURE_ORDER = [
     "Neutral_Venue"
 ]
 
-# 2. Load Assets safely
-@st.cache_resource
+# 2. Load Assets Safely (Duplicate removed, caching completely disabled for clean disk reads)
 def load_all_assets():
     profile_path = "data/processed/squad_advanced_profile.csv"
     player_path = "data/processed/web_player_performance.csv"
@@ -31,6 +30,11 @@ def load_all_assets():
         
     profile_df = pd.read_csv(profile_path)
     player_df = pd.read_csv(player_path)
+    
+    # Ensure any trailing spaces are cleanly removed
+    profile_df["National_Team"] = profile_df["National_Team"].str.strip()
+    player_df["National_Team"] = player_df["National_Team"].str.strip()
+    
     with open(model_path, "rb") as f:
         model = pickle.load(f)
         
@@ -43,7 +47,7 @@ teams_list = sorted(profile_df["National_Team"].tolist())
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("🏠 Home Team ")
+    st.subheader("🏠 Home Team")
     home_team = st.selectbox("Select Team A", teams_list, index=teams_list.index("USA") if "USA" in teams_list else 0)
     h_meta = profile_df[profile_df["National_Team"] == home_team].iloc[0]
     h_sharpness = player_df[player_df["National_Team"] == home_team]["Recent_Form_Sharpness_Rating"].mean()
@@ -52,7 +56,7 @@ with col1:
     st.write(f"Avg Squad Form: **{h_sharpness:.2f}/10**")
 
 with col2:
-    st.subheader("🚀 Away Team ")
+    st.subheader("🚀 Away Team")
     away_team = st.selectbox("Select Team B", teams_list, index=teams_list.index("Portugal") if "Portugal" in teams_list else 1)
     a_meta = profile_df[profile_df["National_Team"] == away_team].iloc[0]
     a_sharpness = player_df[player_df["National_Team"] == away_team]["Recent_Form_Sharpness_Rating"].mean()
@@ -98,7 +102,7 @@ if st.button("🔮 Run 2026 Match Simulation", use_container_width=True):
             "Neutral_Venue": neutral_value
         }])
         
-        # 🔥 THE CRITICAL CORRECTION: Force columns to match the training feature array shape exactly
+        # Force columns to match the training feature array shape exactly
         input_matrix = raw_input[FEATURE_ORDER]
         
         # Compute probabilities -> [0: Away Win, 1: Home Win, 2: Draw]
