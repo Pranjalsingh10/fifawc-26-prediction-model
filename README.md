@@ -5,7 +5,7 @@ An end-to-end predictive analytics platform and machine learning pipeline built 
 ---
 
 ## 🚀 Live Production URL
-🔗 **[Deploy Link]**: Your live cloud URL will display here (e.g., `https://your-app-name.streamlit.app/`)
+(https://fifawc-26-prediction-model-d7mkzuiq2kvbr5bnjxcrwg.streamlit.app/)
 
 ---
 
