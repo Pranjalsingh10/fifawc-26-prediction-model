@@ -3,24 +3,31 @@ import numpy as np
 import os
 
 def generate_match_features():
-    print("⏳ Loading web profiles, matches, and player matrices with neutral venue indicators...")
+    print("⏳ Loading profiles and matches...")
     
     profile_path = "data/processed/squad_advanced_profile.csv"
     player_path = "data/processed/web_player_performance.csv"
     
     if not os.path.exists(profile_path) or not os.path.exists(player_path):
-        print("❌ Error: Missing master files.")
+        print("❌ Error: Missing master CSV files.")
         return
         
     df_profiles = pd.read_csv(profile_path)
     df_players = pd.read_csv(player_path)
     
-    print("🧠 Aggregating player form indexes into team layers...")
+    # Clean column names to make sure they match perfectly
+    df_profiles.columns = df_profiles.columns.str.strip()
+    df_players.columns = df_players.columns.str.strip()
+    
+    print("🧠 Aggregating player form indexes...")
     squad_form = df_players.groupby("National_Team")["Recent_Form_Sharpness_Rating"].mean().reset_index()
-    squad_form = squad_form.rename(columns={"National_Team": "National_Team", "Recent_Form_Sharpness_Rating": "Squad_Form_Sharpness"})
+    squad_form = squad_form.rename(columns={"Recent_Form_Sharpness_Rating": "Squad_Form_Sharpness"})
     
-    df_profiles = pd.merge(df_profiles, squad_form, on="National_Team", how="inner")
+    # 🌟 USE LEFT JOIN: This ensures NO teams get dropped from squad_advanced_profile.csv!
+    df_profiles = pd.merge(df_profiles, squad_form, on="National_Team", how="left")
+    df_profiles["Squad_Form_Sharpness"] = df_profiles["Squad_Form_Sharpness"].fillna(7.0)
     
+    # Load match history
     matches_url = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
     df_matches = pd.read_csv(matches_url)
     df_matches["date"] = pd.to_datetime(df_matches["date"])
@@ -29,10 +36,9 @@ def generate_match_features():
     name_cleaner = {"United States": "USA", "South Korea": "South Korea", "Iran": "IR Iran"}
     df_matches["home_team"] = df_matches["home_team"].replace(name_cleaner)
     df_matches["away_team"] = df_matches["away_team"].replace(name_cleaner)
-    
     df_matches["Neutral_Venue"] = df_matches["neutral"].astype(int)
     
-    # Explicitly mapping column targets to the exact long training strings
+    # Merge Home stats
     df_features = pd.merge(df_matches, df_profiles, left_on="home_team", right_on="National_Team", how="inner").rename(columns={
         "Latest_Elo_Rating": "Home_Elo", 
         "Win_Rate_Post_2022": "Home_WinRate_Post2022",
@@ -40,6 +46,7 @@ def generate_match_features():
         "Squad_Form_Sharpness": "Home_Squad_Form_Sharpness"
     }).drop(columns=["National_Team"], errors='ignore')
     
+    # Merge Away stats
     df_features = pd.merge(df_features, df_profiles, left_on="away_team", right_on="National_Team", how="inner").rename(columns={
         "Latest_Elo_Rating": "Away_Elo", 
         "Win_Rate_Post_2022": "Away_WinRate_Post2022",

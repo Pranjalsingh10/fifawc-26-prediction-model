@@ -1,49 +1,49 @@
 National_Team,Latest_Elo_Rating,Win_Rate_Post_2022,World_Cup_Titles
-Algeria,1750,0.5,0
-Argentina,2150,0.78,3
-Australia,1750,0.5,0
-Austria,1860,0.57,0
-Belgium,1960,0.64,0
-Bosnia and Herzegovina,1750,0.5,0
-Brazil,2130,0.77,5
-Cabo Verde,1750,0.5,0
-Canada,1750,0.5,0
-Colombia,1910,0.6,0
-Congo DR,1750,0.5,0
-Croatia,1950,0.63,0
-Curacao,1750,0.5,0
-Czech Republic,1820,0.53,0
-Cote d'Ivoire,1750,0.5,0
-Ecuador,1825,0.54,0
-Egypt,1750,0.5,0
-England,2040,0.69,1
-France,2120,0.76,2
-Germany,2020,0.68,4
-Ghana,1750,0.5,0
-Haiti,1750,0.5,0
-Iraq,1750,0.5,0
-IR Iran,1835,0.54,0
-Japan,1900,0.6,0
-Jordan,1750,0.5,0
-South Korea,1845,0.55,0
-Mexico,1880,0.58,0
-Morocco,1920,0.61,0
-Netherlands,1975,0.65,0
-New Zealand,1750,0.5,0
-Norway,1850,0.56,0
-Panama,1750,0.5,0
-Paraguay,1830,0.54,0
-Portugal,2020,0.68,0
-Qatar,1750,0.5,0
-Saudi Arabia,1750,0.5,0
-Scotland,1815,0.53,0
-Senegal,1840,0.55,0
-South Africa,1750,0.5,0
-Spain,2050,0.7,1
-Sweden,1855,0.56,0
-Switzerland,1890,0.59,0
-Tunisia,1750,0.5,0
-Turkey,1750,0.5,0
-Uruguay,1940,0.62,2
-USA,1750,0.5,0
-Uzbekistan,1750,0.5,0
+Algeria,1780.0,0.5,0
+Argentina,2120.0,1.0,3
+Australia,1800.0,0.33,0
+Austria,1780.0,0.5,0
+Belgium,1980.0,0.33,0
+Bosnia & Herz.,1800.0,0.33,0
+Brazil,2140.0,0.67,5
+Cabo Verde,1810.0,0.0,0
+Canada,1800.0,0.33,0
+Colombia,2000.0,1.0,0
+Congo DR,1740.0,0.0,0
+Croatia,1910.0,0.5,0
+Curaçao,1710.0,0.0,0
+Czechia,1710.0,0.0,0
+Côte d'Ivoire,1840.0,0.67,0
+Ecuador,1800.0,0.33,0
+Egypt,1850.0,0.33,0
+England,2080.0,0.5,1
+France,2180.0,1.0,2
+Germany,2090.0,0.67,2
+Ghana,1830.0,0.5,0
+Haiti,1660.0,0.0,0
+IR Iran,1810.0,0.0,0
+Iraq,1660.0,0.0,0
+Japan,1980.0,0.33,0
+Jordan,1690.0,0.0,0
+Korea Republic,1880.0,0.33,0
+Mexico,2060.0,1.0,0
+Morocco,2020.0,0.67,0
+Netherlands,2140.0,0.67,0
+New Zealand,1710.0,0.0,0
+Norway,1840.0,0.67,0
+Panama,1690.0,0.0,0
+Paraguay,1800.0,0.33,0
+Portugal,2080.0,0.5,0
+Qatar,1710.0,0.0,0
+Saudi Arabia,1760.0,0.0,0
+Scotland,1750.0,0.33,0
+Senegal,1750.0,0.33,0
+South Africa,1800.0,0.33,0
+Spain,2140.0,0.67,1
+Sweden,1800.0,0.33,0
+Switzerland,2020.0,0.67,0
+Tunisia,1660.0,0.0,0
+Türkiye,1750.0,0.33,0
+United States,1970.0,0.67,0
+Uruguay,1890.0,0.0,2
+Uzbekistan,1690.0,0.0,0
